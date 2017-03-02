@@ -5,31 +5,7 @@ byte number = 0;
 
 DHT sensor(DHTPIN, DHTTYPE);
 
-/*-float TSPsensor()
-{
-  int samplingTime = 280;
-  int deltaTime = 40;
-  int sleepTime = 180;
 
-  float voMeasured = 0;
-  float calcVoltage = 0;
-  float dustDensity = 0;
-  digitalWrite(ledPower, LOW); // power on the LED
-  delayMicroseconds(samplingTime);
-
-  voMeasured = analogRead(measurePin); // read the dust value
-
-  delayMicroseconds(deltaTime);
-  digitalWrite(ledPower, HIGH); // turn the LED off
-  delayMicroseconds(sleepTime);
-
-  // 0 - 5V mapped to 0 - 1023 integer values
-  // recover voltage
-  calcVoltage = voMeasured * (5.0 / 1024.0);
-  dustDensity = 0.17 * calcVoltage - 0.1;
-
-  return dustDensity*1000;
-}*/
 void setup() {
   Serial.begin(9600);
   sensor.begin();
