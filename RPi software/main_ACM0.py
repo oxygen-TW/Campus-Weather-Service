@@ -9,7 +9,7 @@ import serial
 
 
 def upload(temperature, humidity, UV_value, light_value):
-        params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'key':'API-KEY'})
+        params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'key':'M108RN6TTVSB0QEB'})
         
         headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
         conn = httplib.HTTPConnection("api.thingspeak.com:80")
@@ -20,7 +20,7 @@ def upload(temperature, humidity, UV_value, light_value):
         conn.close()
 
 def WriteFile(current_weather):
-    fp = open('PATH/data.txt','a')
+    fp = open('Data/data.txt','a')
     fp.write(current_weather)    
     fp.close()
     

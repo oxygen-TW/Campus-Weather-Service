@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 */5 * * * * sudo sh /usr/Weather_service/autorun.sh
+=======
+*/5 * * * * sudo /usr/Weather_service/autorun.sh
+
+>>>>>>> 9a788f895f9b1f7e981a5183150109e35f2cafd6
