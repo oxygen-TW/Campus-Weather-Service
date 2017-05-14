@@ -4,6 +4,6 @@ sudo mv RPi\ software/autorun.sh /usr/Weather_service
 sudo mkdir /usr/Weather_service/Data
 sudo touch /usr/Weather_service/Data/data.txt
 sudo mv RPi\ software/crontab /etc
-sudo crontab /etc/croninfo 
+sudo crontab /etc/crontab
 echo Install completed
 echo Thank you!
