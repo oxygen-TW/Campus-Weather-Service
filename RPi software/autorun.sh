@@ -1,1 +1,1 @@
-sudo python /home/oxygen/Desktop/GPIO/DHTsensor_via_mcu_auto.py
+sudo python /usr/Weather_service/main_ACM0.py
