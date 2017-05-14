@@ -71,3 +71,4 @@ upload(temperature, humidity, UV_value, light_value)
     #	print('Failed to get reading. Try again!')
     #	sys.exit(1)
  
+
