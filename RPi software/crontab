@@ -1,2 +1,2 @@
-*/5 * * * * sudo /usr/Weather_service/autorun.sh
+*/5 * * * * sudo sh /usr/Weather_service/autorun.sh
 
