@@ -11,30 +11,35 @@ byte number = 0;
 
 DHT sensor(DHTPIN, DHTTYPE);
 
-String MakeJson(double obj1,double obj2,double obj3,double obj4)
+String MakeJson(double obj1, double obj2, double obj3, double obj4)
 {
   String JsonStr("{");
 
-  JsonStr+="\"type\":\"General\",";
-  JsonStr+="\"Temp\":"+ DtoS(obj1) +",";
-  JsonStr+="\"Humi\":"+DtoS(obj2)+",";
-  JsonStr+="\"light\":"+DtoS(obj3)+",";
-  JsonStr+="\"UV\":"+DtoS(obj4);
-  JsonStr+="}";
+  JsonStr += "\"type\":\"General\",";
+  
+  JsonStr += "\"Temp\":";
+  JsonStr += isnan(obj1) ? DtoS(obj1) + "," :"\"NAN\", ";
+
+  JsonStr += "\"Humi\":";
+  JsonStr += isnan(obj2) ? DtoS(obj1) + "," :"\"NAN\", ";
+  
+  JsonStr += "\"light\":" + DtoS(obj3) + ",";
+  JsonStr += "\"UV\":" + DtoS(obj4);
+  JsonStr += "}";
   return JsonStr;
 }
 
 String DtoS(double num)
 {
-  char x[10]={""};
-  dtostrf(num,5,2,x);
+  char x[10] = {""};
+  dtostrf(num, 5, 2, x);
   String objstr(x);
   return objstr;
-} 
+}
 
 
 /*-float TSPsensor()
-{
+  {
   int samplingTime = 280;
   int deltaTime = 40;
   int sleepTime = 180;
@@ -57,7 +62,8 @@ String DtoS(double num)
   dustDensity = 0.17 * calcVoltage - 0.1;
 
   return dustDensity*1000;
-}*/
+  }*/
+
 void setup() {
   Serial.begin(9600);
   sensor.begin();
@@ -72,8 +78,10 @@ void loop() {
       double Humi = sensor.readHumidity();
       double light = analogRead(A1);
       double UV = analogRead(A0);
-      
-      Serial.println(MakeJson(Temp,Humi,light,UV));
+
+      if (isnan(Temp)) Temp = -500;
+      if (isnan(Humi)) Humi = -1;
+      Serial.println(MakeJson(Temp, Humi, light, UV));
     }
   }
   /*else
