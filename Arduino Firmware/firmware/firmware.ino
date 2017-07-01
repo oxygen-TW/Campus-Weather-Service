@@ -1,3 +1,9 @@
+//General Firmware
+//Format
+//{"type":Firmware-Type,"obj1":Tempreture,"obj2":Humidity,"obj3":Light_index,"obj4":UV_index}
+//
+//2017/07/01
+
 #include <DHT.h>
 byte number = 0;
 #define DHTPIN 2
@@ -64,8 +70,8 @@ void loop() {
     {
       double Temp = sensor.readTemperature();
       double Humi = sensor.readHumidity();
-      double light = analogRead(A0);
-      double UV = analogRead(A1);
+      double light = analogRead(A1);
+      double UV = analogRead(A0);
       
       Serial.println(MakeJson(Temp,Humi,light,UV));
     }

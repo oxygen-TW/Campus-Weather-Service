@@ -8,9 +8,10 @@ import re
 import serial
 import json
 
+APIKEY = 'Y1JUZC930YOKH5JA'
 
 def upload(temperature, humidity, UV_value, light_value):
-        params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'key':'JG4TQO6QP1ALOVFY'})
+        params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'key': APIKEY})
         
         headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
         conn = httplib.HTTPConnection("api.thingspeak.com:80")
@@ -25,7 +26,7 @@ def WriteFile(current_weather):
     fp.write(current_weather)    
     fp.close()
     
-def GetAnalogIndex():
+def GetJsonData():
 #Open Serial Port To Arduino nano
     ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
     ser.isOpen()
@@ -48,7 +49,7 @@ def GetAnalogIndex():
     return response
 
 #while True:
-JsonData = GetAnalogIndex()
+JsonData = GetJsonData()
 
 data = json.loads(JsonData)
 temperature = data['Temp']
@@ -56,7 +57,7 @@ humidity = data['Humi']
 light_value = data['light']
 UV_value = data['UV']
 
-light_value=1023-light_value
+#light_value=1023-light_value
     
     #if humidity is not None and temperature is not None:
 current_weather=time.strftime("%Y/%m/%d %H:%M:%S ")+'Temp={0:0.1f}* Humidity={1:0.1f}% light_value={2:0.1f} UV={3:0.1f}'.format(temperature, humidity, light_value, UV_value)
