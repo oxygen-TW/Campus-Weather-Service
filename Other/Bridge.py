@@ -62,5 +62,5 @@ light_value=1023-light_value
 current_weather=time.strftime("%Y/%m/%d %H:%M:%S ")+'Temp={0:0.1f}* Humidity={1:0.1f}% light_value={2:0.1f} UV={3:0.1f}'.format(temperature, humidity, light_value, UV_value)
 print(current_weather)
 #	print(UV_value)
-WriteFile(current_weather+'\n')
+#WriteFile(current_weather+'\n')
 upload(temperature, humidity, UV_value, light_value)    	
