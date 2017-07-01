@@ -60,7 +60,18 @@ UV_value = data['UV']
 #light_value=1023-light_value
     
     #if humidity is not None and temperature is not None:
-current_weather=time.strftime("%Y/%m/%d %H:%M:%S ")+'Temp={0:0.1f}* Humidity={1:0.1f}% light_value={2:0.1f} UV={3:0.1f}'.format(temperature, humidity, light_value, UV_value)
+current_weather=time.strftime("%Y/%m/%d %H:%M:%S ")
+if temperature != "NAN":
+    current_weather+='Temp=NAN'
+else:
+    current_weather+='Temp='+str(temperature)+'*'
+
+if humidity != "NAN":
+    current_weather+=' Humidity=NAN'
+else:
+    current_weather+=' Humidity='+str(humidity)+'%'
+    
+current_weather+= ' light_value={0:0.1f} UV={1:0.1f}'.format(light_value, UV_value)
 print(current_weather)
 #	print(UV_value)
 #WriteFile(current_weather+'\n')
