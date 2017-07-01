@@ -5,6 +5,28 @@ byte number = 0;
 
 DHT sensor(DHTPIN, DHTTYPE);
 
+String MakeJson(double obj1,double obj2,double obj3,double obj4)
+{
+  String JsonStr("{");
+
+  JsonStr+="\"type\":\"General\", ";
+  JsonStr+="\"Temp\":"+ DtoS(obj1) +", ";
+  JsonStr+="\"Humi\":"+DtoS(obj2)+", ";
+  JsonStr+="\"light\":"+DtoS(obj3)+", ";
+  JsonStr+="\"UV\":"+DtoS(obj4);
+  JsonStr+="}";
+  return JsonStr;
+}
+
+String DtoS(double num)
+{
+  char x[10]={""};
+  dtostrf(num,5,2,x);
+  String objstr(x);
+  return objstr;
+} 
+
+
 /*-float TSPsensor()
 {
   int samplingTime = 280;
@@ -38,20 +60,15 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     number = Serial.read();
-    if (number == 'L')
-      Serial.print(analogRead(A0));//light_value
-    else if (number == 'U')
-      Serial.print(analogRead(A1));//UV_value
-    else if (number == 'R')
-      Serial.print(analogRead(A2));//Rain_value
-    else if (number == 'T')
-      Serial.print(sensor.readTemperature());//Temperature_value
-    else if (number == 'H')
-      Serial.print(sensor.readHumidity());//Humidity_value
-   // else if (number == 'D')
-//      Serial.print(TSPsensor());//Humidity_value
-    //Serial.print("ok");
-
+    if (number == 'D')
+    {
+      double Temp = sensor.readTemperature();
+      double Humi = sensor.readHumidity();
+      double light = analogRead(A0);
+      double UV = analogRead(A1);
+      
+      Serial.println(MakeJson(Temp,Humi,light,UV));
+    }
   }
   /*else
     Serial.println("FAIL");*/
