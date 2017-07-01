@@ -15,10 +15,10 @@ String MakeJson(double obj1,double obj2,double obj3,double obj4)
 {
   String JsonStr("{");
 
-  JsonStr+="\"type\":\"General\", ";
-  JsonStr+="\"Temp\":"+ DtoS(obj1) +", ";
-  JsonStr+="\"Humi\":"+DtoS(obj2)+", ";
-  JsonStr+="\"light\":"+DtoS(obj3)+", ";
+  JsonStr+="\"type\":\"General\",";
+  JsonStr+="\"Temp\":"+ DtoS(obj1) +",";
+  JsonStr+="\"Humi\":"+DtoS(obj2)+",";
+  JsonStr+="\"light\":"+DtoS(obj3)+",";
   JsonStr+="\"UV\":"+DtoS(obj4);
   JsonStr+="}";
   return JsonStr;

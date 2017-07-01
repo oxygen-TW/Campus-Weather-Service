@@ -50,7 +50,7 @@ def GetJsonData():
 
 #while True:
 JsonData = GetJsonData()
-
+print (JsonData)
 data = json.loads(JsonData)
 temperature = data['Temp']
 humidity = data['Humi']
