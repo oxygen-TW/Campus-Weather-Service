@@ -6,10 +6,10 @@ import os
 #usage: in the other file: database.insert_weather((datetime.now(),temperature, humidity, UV_value,light_value))
 class Database:
     def __enter__(self):
-        self.conn = pymysql.connect(host='203.72.63.200',
-                                    port=3306, user='nhcc',
-                                    passwd='nhcc9487',
-                                    db = 'nhcciot',
+        self.conn = pymysql.connect(host='HOST',
+                                    port=3306, user='USER',
+                                    passwd='PASSWORD',
+                                    db = 'DATABASE',
                                     use_unicode=True,
                                     charset="utf8")
         self.cur = self.conn.cursor()
