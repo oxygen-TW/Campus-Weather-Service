@@ -2,11 +2,10 @@
 
 import sys
 import time
-import httplib
 import urllib
 import re
 import serial
-
+import database
 
 def upload(temperature, humidity, UV_value, light_value):
         params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'key':'M108RN6TTVSB0QEB'})
@@ -70,5 +69,8 @@ upload(temperature, humidity, UV_value, light_value)
     #else:
     #	print('Failed to get reading. Try again!')
     #	sys.exit(1)
+
+time = "2017/7/12 12:34"
+database.insert_weather(time,temperature,humidity,UV_value,light_value)
  
 
