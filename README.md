@@ -2,10 +2,8 @@
 >我們是氣象站團隊! 我們希望開發出小型的氣象觀測站，並將氣象觀測站廣設於校園中，以利同學及老師在上課前可以知道學校的天氣狀況，定期觀測的數據也可作為預報或其他研究用途，此專案開源，所以學校也可將此氣象感測站依需求修改及作為教學用途，如有興趣參與計畫，歡迎與我們聯絡，我們會為你們的學校準備一組氣象站設備。 
 
 ### 氣象站服務
-http://weather.nhsh.tp.edu.tw
 
-### 聯絡我們
-Group email -> weatherstationtw@gmail.com
+[http://weather.nhsh.tp.edu.tw](http://weather.nhsh.tp.edu.tw "氣象站服務")
 
 ### 站點架設需求(標準規格)
 - 穩定電源(5V/110V/220V)
@@ -17,28 +15,36 @@ Group email -> weatherstationtw@gmail.com
 注意: 安裝前請和我們聯絡，我們會為您建立伺服器中的空間 <br>
 下載我們釋出的映像檔(即將推出)並燒入記憶卡，將樹莓派開機後連上網路，執行以下步驟
 
-1. 把感測器單元和樹莓派的USB連接
-2. 查出感測器單元的tty*檔名
-3. 執行 /usr/WeatherServiceClient/install.sh
+1. 把感測器單元和樹莓派的 USB 連接
+2. 查出感測器單元的 tty* 檔名
+3. 執行 `/usr/WeatherServiceClient/install.sh`
 4. 依序回答安裝過程中的問題
 5. 完成安裝
 
 ### 安裝方法2
-注意: 安裝前請和我們聯絡，我們會為您建立伺服器中的空間 <br>
+
+注意: 安裝前請和我們聯絡，我們會為您建立伺服器中的空間
+
 Clone 我們的專案
 
-1. git clone https://github.com/oxygen-TW/Weather-Station.git
-2. cd Weather-Station
-3. 使用 Arduino IDE 將 Frimrare 資料夾內的韌體燒錄至感測器單元(已安裝韌體則跳過)
-4. 把感測器單元和樹莓派的USB連接
-5. 查出感測器單元的tty*檔名
-6. 執行 install.sh
+```
+git clone https://github.com/oxygen-TW/Weather-Station.git
+cd Weather-Station
+```
+
+1. 使用 Arduino IDE 將 Frimrare 資料夾內的韌體燒錄至感測器單元(已安裝韌體則跳過)
+4. 把感測器單元和樹莓派的 USB 連接
+5. 查出感測器單元的 tty* 檔名
+6. 執行 `install.sh`
 7. 依序回答安裝過程中的問題
 8. 完成安裝
 
 ### 如何移除
 
-1. 執行 remove.sh
+執行 `remove.sh`
+```
+sh remove.sh
+```
 
 ### 感測器規格
 - 簡單規格: 溫度、濕度、光強度
@@ -62,9 +68,15 @@ Clone 我們的專案
 ### 技術需求
 如果您對本專案有興趣，歡迎加入我們
 
-- Android/ios App 開發
+- Android/IOS APP 開發
 - MCU 開發
 - 美工設計
 
 ### API
+
 開發中
+
+
+### 聯絡我們
+
+Group email -> weatherstationtw@gmail.com
