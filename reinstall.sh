@@ -1,3 +1,6 @@
+sudo rm -rf /usr/WeatherServiceClient
+sudo rm -f /etc/crontab
+
 sudo cp -r WeatherServiceClient /usr
 sudo mv RPi\ software/crontab /etc
 sudo chmod +x /etc/crontab
