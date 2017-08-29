@@ -1,3 +1,11 @@
+/*
+ * School Weather Service Project 2016-2017
+ * Github https://github.com/oxygen-TW/Weather-Station
+ * E-mail weatherstationTW@gmail.com
+ * Service Website http://weather.nhsh.tp.edu.tw
+ */
+
+#include "config.h"
 #include <SoftwareSerial.h>
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
@@ -5,13 +13,12 @@
 
 //General Firmware
 //Format
-//{"type":Firmware-Type,"obj1":Tempreture,"obj2":Humidity,"obj3":Light_index,"obj4":UV_index}
+//{"type":Firmware-Type,"obj1":Tempreture,"obj2":Humidity,"obj3":Light_index,"obj4":UV_index, "obj5":RainFall}
 //
 //2017/07/01
+//2017/08/29
 
 byte number = 0;
-#define DHTPIN 2
-#define DHTTYPE DHT22
 #define LENG 31   //0x42 + 31 bytes equal to 32 bytes
 unsigned char buf[LENG];
 
@@ -62,7 +69,7 @@ int transmitPM10(unsigned char *thebuf)
   return PM10Val;
 }
 
-String MakeJson(double obj1, double obj2, double obj3, double obj4)
+String MakeJson(double obj1, double obj2, double obj3, double obj4, double obj5)
 {
   String JsonStr("{");
 
@@ -75,7 +82,8 @@ String MakeJson(double obj1, double obj2, double obj3, double obj4)
   JsonStr += isnan(obj2) ? DtoS(obj1) + "," :"\"NAN\", ";
   
   JsonStr += "\"light\":" + DtoS(obj3) + ",";
-  JsonStr += "\"UV\":" + DtoS(obj4);
+  JsonStr += "\"UV\":" + DtoS(obj4) + ",";
+  JsonStr += "\"Rain\":" + DtoS(obj5);
   JsonStr += "}";
   return JsonStr;
 }
@@ -89,7 +97,7 @@ String DtoS(double num)
 }
 
 
-void GetPMData()
+/*void GetPMData()
 {
   PMSerial.readBytes(buf,LENG);
   Serial.println(buf[0]);
@@ -100,7 +108,7 @@ void GetPMData()
         PM10Value=transmitPM10(buf); //count PM10 value of the air detector module 
       }          
 }
-}
+}*/
 void setup() {
   Serial.begin(9600);
   PMSerial.begin(9600);
@@ -112,18 +120,19 @@ void loop() {
     number = Serial.read();
     if (number == 'D')
     {
-      GetPMData();
+      /*GetPMData();
       Serial.println(PM01Value);
       Serial.println(PM2_5Value);
-      Serial.println(PM10Value);
+      Serial.println(PM10Value);*/
       double Temp = sensor.readTemperature();
       double Humi = sensor.readHumidity();
       double light = analogRead(A1);
       double UV = analogRead(A0);
-
+      double Rain = analogRead(A2);
+      
       if (isnan(Temp)) Temp = -500;
       if (isnan(Humi)) Humi = -1;
-      Serial.println(MakeJson(Temp, Humi, light, UV));
+      Serial.println(MakeJson(Temp, Humi, light, UV, Rain));
     }
   }
   /*else
