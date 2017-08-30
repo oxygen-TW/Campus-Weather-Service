@@ -7,7 +7,7 @@
 
 #include "config.h"
 #include <SoftwareSerial.h>
-#include <Adafruit_Sensor.h>
+//#include <Adafruit_Sensor.h>
 #include <DHT.h>
 
 
@@ -27,7 +27,7 @@ int PM2_5Value=0;         //define PM2.5 value of the air detector module
 int PM10Value=0;         //define PM10 value of the air detector module
 SoftwareSerial PMSerial(10,11);
 DHT sensor(DHTPIN, DHTTYPE);
-
+/*
 char checkValue(unsigned char *thebuf, char leng)
 {  
   char receiveflag=0;
@@ -68,7 +68,7 @@ int transmitPM10(unsigned char *thebuf)
   PM10Val=((thebuf[7]<<8) + thebuf[8]); //count PM10 value of the air detector module  
   return PM10Val;
 }
-
+*/
 String MakeJson(double obj1, double obj2, double obj3, double obj4, double obj5)
 {
   String JsonStr("{");
@@ -76,10 +76,10 @@ String MakeJson(double obj1, double obj2, double obj3, double obj4, double obj5)
   JsonStr += "\"type\":\"General\",";
   
   JsonStr += "\"Temp\":";
-  JsonStr += isnan(obj1) ? DtoS(obj1) + "," :"\"NAN\", ";
+  JsonStr += isnan(obj1) ? "\"NAN\", ":DtoS(obj1) + ",";
 
   JsonStr += "\"Humi\":";
-  JsonStr += isnan(obj2) ? DtoS(obj1) + "," :"\"NAN\", ";
+  JsonStr += isnan(obj2) ? "\"NAN\", ":DtoS(obj2) + ",";
   
   JsonStr += "\"light\":" + DtoS(obj3) + ",";
   JsonStr += "\"UV\":" + DtoS(obj4) + ",";

@@ -25,6 +25,7 @@
 - 細懸浮微粒感測 -> pms5003/pms5005
 - 氣壓感測 -> BMP180 或其他
 - 感測器OS -> Ubuntu IoT core
+- Client Node -> Raspberry Pi (2/3)
 - Driver -> Python
 - Firmware -> C/C++ for Arduino
 
@@ -93,7 +94,10 @@ sh remove.sh
 - Android/IOS APP 開發
 - MCU 開發
 - 美工設計
+- 熟悉 3D 列印及雷射切割者
+- 網頁前端設計師
 
 ## 聯絡我們
 
+Facebook -> https://www.facebook.com/pg/WeatherServiceTW
 Group Email -> weatherstationtw@gmail.com
