@@ -126,9 +126,9 @@ void loop() {
       Serial.println(PM10Value);*/
       double Temp = sensor.readTemperature();
       double Humi = sensor.readHumidity();
-      double light = analogRead(A1);
-      double UV = analogRead(A0);
-      double Rain = analogRead(A2);
+      double light = analogRead(Light_Pin);
+      double UV = analogRead(UV_Pin);
+      double Rain = analogRead(Rain_Pin);
       
       if (isnan(Temp)) Temp = -500;
       if (isnan(Humi)) Humi = -1;

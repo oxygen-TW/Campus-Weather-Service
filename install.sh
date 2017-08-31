@@ -1,17 +1,21 @@
 sudo cp -r WeatherServiceClient /usr
-sudo mv RPi\ software/crontab /etc
+sudo cp /home/WeatherServiceClient/crontab /etc
 sudo chmod +x /etc/crontab
 sudo crontab /etc/crontab
 
+#install
+
 read -p "Which port is connect to MCU?" port
-read -p "Where do you want to save weather data?" _file
+echo "sudo python /usr/WeatherServiceClient/mainDriver.py "$port" /usr/WeatherServiceClient/Data/data.txt" > /usr/WeatherServiceClient/autorun.sh
 
-if [ -d $_file ]; then
-    echo "sudo python /usr/WeatherStationClient/mainDriver.py "$port" "$_file > /usr/WeatherStationClient/autorun.sh
+cd /tmp
+wget https://pypi.python.org/packages/source/p/pyserial/pyserial-3.0.1.tar.gz#md5=c8521e49f8852196aac39431e0901703
+tar zxvf pyserial-3.0.1.tar.gz
+cd pyserial-3.0.1/
+python setup.py install
 
-	echo Install completed
-	echo Thank you!
-else
-    echo "Directory "$_file" does not exists."
-fi
+cd /usr/WeatherServiceClient
+echo Install completed
+echo Thank you!
+
 

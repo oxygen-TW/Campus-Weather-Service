@@ -4,6 +4,7 @@
 
 ## 氣象站服務
 
+Project status: Pre-alpha
 目前該服務託管於內湖高中機房
 
 [http://weather.nhsh.tp.edu.tw](http://weather.nhsh.tp.edu.tw "氣象站服務")
@@ -24,7 +25,7 @@
 - 雨水感測 -> KMS030 或其他
 - 細懸浮微粒感測 -> pms5003/pms5005
 - 氣壓感測 -> BMP180 或其他
-- 感測器OS -> Ubuntu IoT core
+- 感測器OS -> [DietPi](http://dietpi.com/)
 - Client Node -> Raspberry Pi (2/3)
 - Driver -> Python
 - Firmware -> C/C++ for Arduino
@@ -43,7 +44,7 @@
 ### 安裝方法1
 
 注意: 安裝前請與[我們聯絡](#聯絡我們)，我們會為您建立伺服器中的空間
-
+注意: `install.sh` 仍然在開發階段，可能會導致例外狀況發生，開發者正在努力修補，請見諒。
 下載我們釋出的映像檔(即將推出)並燒入記憶卡，將樹莓派開機後連上網路並執行以下步驟：
 
 1. 把感測器單元和樹莓派的 USB 連接
@@ -65,7 +66,7 @@ cd Weather-Station
 
 1. 使用 Arduino IDE 將 Frimrare 資料夾內的韌體燒錄至感測器單元(已安裝韌體則跳過)
 4. 把感測器單元和樹莓派的 USB 連接
-5. 查出感測器單元的 tty* 檔名
+5. 查出感測器單元的 tty* 檔名(我們的感測器通常是/dev/ttyUSB0)
 6. 執行 `install.sh`
 7. 依序回答安裝過程中的問題
 8. 完成安裝
@@ -73,6 +74,7 @@ cd Weather-Station
 ## 移除
 
 執行 `remove.sh`
+注意: `remove.sh` 仍然在開發階段，可能會導致例外狀況發生，開發者正在努力修補，請見諒。
 ```
 sh remove.sh
 ```
