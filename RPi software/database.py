@@ -3,15 +3,16 @@
 import pymysql
 import os
 
-#usage: in the other file: database.insert_weather((datetime.now(),temperature, humidity, UV_value,light_value))
+
 class Database:
     def __enter__(self):
-        self.conn = pymysql.connect(host='HOST',
-                                    port=3306, user='USER',
-                                    passwd='PASSWORD',
-                                    db = 'DATABASE',
+        self.conn = pymysql.connect(host='203.72.63.54',
+                                    db='weatherstation',
+                                    port=3306, user='weathertw',
+                                    passwd='nhcc9487',
                                     use_unicode=True,
                                     charset="utf8")
+
         self.cur = self.conn.cursor()
         return self.cur
 
@@ -19,23 +20,40 @@ class Database:
         self.conn.commit()
         self.conn.close()
 
-def query_fetchone(sql,data=None):
+
+def query_fetchone(sql, data=None):
     with Database() as db:
         if data:
-            db.execute(sql,data)
+            db.execute(sql, data)
         else:
             db.execute(sql)
         return db.fetchone()
-def query_fetchall(sql,data=None):
+
+
+def query_fetchall(sql, data=None):
     with Database() as db:
         if data:
-            db.execute(sql,data)
+            db.execute(sql, data)
         else:
             db.execute(sql)
         return db.fetchall()
 
+
 def insert_weather(data):
-    #use_database(db)
     with Database() as db:
-        if(data[0] > query_fetchone("""select time from weather;""")[0]):
-            sql = """INSERT INTO weather (time,tpr,wet,uv,light) VALUES (%s,%s,%s,%s,%s)"""
+        sql = """INSERT INTO weather_weather (time,temperature,humidity,uv,light,pm) VALUES (%s,%s,%s,%s,%s,%s)""".format(
+            data[0], data[1], data[2], data[3], data[4], data[5])
+        db.execute(sql, data)
+
+
+insert_weather(("2016/08/31 8:49:54", 1, 2, 3, 4, 5))
+'''
+create table weather ( time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                id int NOT NULL  ,
+                temperature float(3,1),
+                humidity float(3,1),
+                uv tinyint(2),
+                lignt int(5),
+                pm float(2,1));
+INSERT INTO weather (time,id,temperatur,humidity,uv,lignt,pm) value('2017/08/29 20:50:40',1,25,77,0,3,2.5);
+'''
