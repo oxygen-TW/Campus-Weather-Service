@@ -4,12 +4,13 @@ import pymysql
 import os
 
 
+# Important! Please change the configs below!
 class Database:
     def __enter__(self):
-        self.conn = pymysql.connect(host='203.72.63.54',
-                                    db='weatherstation',
-                                    port=3306, user='weathertw',
-                                    passwd='nhcc9487',
+        self.conn = pymysql.connect(host='HOST_NAME',
+                                    db='SB_NAME',
+                                    port=PORT, user='USER_NAME',
+                                    passwd='PASSWORD',
                                     use_unicode=True,
                                     charset="utf8")
 
