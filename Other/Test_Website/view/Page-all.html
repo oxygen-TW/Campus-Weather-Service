@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <metacharset="UTF-8"/>
+  <title>All Data Chart Page</title>
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="../canvasjs.min.js"></script>
+</head>
+
+  <body>
+
+  	<div id="chartContainer" style="width: 80%; height: 300px;display: inline-block; "></div>
+ 	<FORM NAME="my_form" METHOD=POST TARGET>
+ 		<span style="font-family:Microsoft JhengHei;">請選擇圖表顯示數據</span>
+	    <INPUT TYPE="checkbox"  NAME="check1" CHECKED ><span style="color:orange; font-family:Microsoft JhengHei;">溫度</span>
+	    <INPUT TYPE="checkbox"  NAME="check2" CHECKED ><span style="color:red; font-family:Microsoft JhengHei;">濕度</span>
+	    <INPUT TYPE="checkbox"  NAME="check3" CHECKED ><span style="color:blue; font-family:Microsoft JhengHei;">紫外線指數</span>
+	    <INPUT TYPE="checkbox"  NAME="check4" CHECKED ><span style="color:green; font-family:Microsoft JhengHei;">光強度</span>
+	    <INPUT TYPE="button" VALUE="確認" onClick="show(this.form)">
+ </FORM>  
+</body>
+ </html>
+
+ <style type="text/css">
+input {
+	font-size:12px;
+	font-family:Verdana;
+	font-weight:normal;
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+	border:1px solid #dcdcdc;
+	padding:5px 22px;
+	text-decoration:none;
+	background:-moz-linear-gradient( center top, #ffffff 5%, #f6f6f6 100% );
+	background:-ms-linear-gradient( top, #ffffff 5%, #f6f6f6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #ffffff), color-stop(100%, #f6f6f6) );
+	background-color:#ffffff;
+	color:#666666;
+	display:inline-block;
+	text-shadow:1px -8px 0px #ffffff;
+ 	-webkit-box-shadow:inset 1px 1px 0px 0px #ffffff;
+ 	-moz-box-shadow:inset 1px 1px 0px 0px #ffffff;
+ 	box-shadow:inset 1px 1px 0px 0px #ffffff;
+}.css_btn_class:hover {
+	background:-moz-linear-gradient( center top, #f6f6f6 5%, #ffffff 100% );
+	background:-ms-linear-gradient( top, #f6f6f6 5%, #ffffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff');
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(5%, #f6f6f6), color-stop(100%, #ffffff) );
+	background-color:#f6f6f6;
+}.css_btn_class:active {
+	position:relative;
+	top:1px;
+}
+</style>
