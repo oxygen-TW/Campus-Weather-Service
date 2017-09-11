@@ -20,12 +20,12 @@ from time import sleep
 # Format python Bridge.py [USB PORT] [DataLog]
 
 APIKEY = 'Y1JUZC930YOKH5JA'
-
+API_SERVER = "203.72.63.54:80/api"
 def upload(temperature, humidity, UV_value, light_value, RainFall):
-        params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'field5':RainFall, 'key': APIKEY})
+        params = urllib.urlencode({'tempature': temperature, 'humidity': humidity, 'light': UV_value, 'UV': light_value, 'rainfall':RainFall})
         
         headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
-        conn = httplib.HTTPConnection("api.thingspeak.com:80")
+        conn = httplib.HTTPConnection(API_SERVER)
         conn.request("POST", "/update", params, headers)
         response = conn.getresponse()
         print response.status, response.reason

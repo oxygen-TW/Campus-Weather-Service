@@ -82,7 +82,8 @@ sh remove.sh
 
 ## API
 
-開發中
+仍在開發階段
+https://github.com/junyussh/weather-api
 
 ## 網頁
 
