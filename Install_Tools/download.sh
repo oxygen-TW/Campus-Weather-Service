@@ -1,3 +1,4 @@
+su -l
 sudo apt-get update
 sudo apt-get upgrade
 
@@ -8,11 +9,13 @@ ufw allow http/tcp
 ufw allow ftp/tcp
 ufw enable
 
+#Check dependences
+apt-get -y install python-pip ftp openssh-server sysv-rc-confgit python3
+
 #Get Weather Service Client
-apt-get install git python3
 cd /home
 git clone https://github.com/oxygen-TW/Weather-Station.git
 cd Weather-Station
-sh install.sh
+sh Install_Tools/install.sh
 
 

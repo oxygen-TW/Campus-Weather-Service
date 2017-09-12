@@ -17,11 +17,4 @@ pip install pymysql
 cd /usr/WeatherServiceClient
 echo Install completed
 echo Thank you!
-echo "Notice! Please set crontab service by yourself!!!!!"
-echo "If you skip this step, device will not upload data itself!"
-echo "You also could set auto-update.sh in crontab, it can update automatically!"
-echo "Start crontab -e"
-
-crontab -e
-
 
