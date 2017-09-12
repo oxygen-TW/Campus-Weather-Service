@@ -1,7 +1,7 @@
 sudo cp -r WeatherServiceClient /usr
-sudo cp /home/WeatherServiceClient/crontab /etc
-sudo chmod +x /etc/crontab
-sudo crontab /etc/crontab
+#sudo cp /home/WeatherServiceClient/crontab /etc
+#sudo chmod +x /etc/crontab
+#sudo crontab /etc/crontab
 
 #install
 
