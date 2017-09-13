@@ -1,22 +1,28 @@
-sudo cp -r WeatherServiceClient /usr
-#sudo cp /home/WeatherServiceClient/crontab /etc
-#sudo chmod +x /etc/crontab
-#sudo crontab /etc/crontab
+su -l
+sudo cp -r /usr/local/src/Weather-Station/WeatherServiceClient /usr
+
+#Set ssh server
+sudo rm -f /etc/ssh/sshd_config
+sudo cp /usr/local/src/Weather-Station/WeatherServiceClient/Install_Tools/sshd_config /etc/ssh/
+service ssh start
+sudo update-rc.d -f ssh defaults
+echo "SSH Server default port = 12345"
 
 #install
-
 read -p "Which port is connect to MCU?" port
-echo "sudo python /usr/WeatherServiceClient/mainDriver.py "$port" /usr/WeatherServiceClient/Data/data.txt" > /usr/WeatherServiceClient/autorun.sh
+echo "sudo python /usr/WeatherServiceClient/Driver.py "$port" /usr/WeatherServiceClient/Data/data.txt" > /usr/WeatherServiceClient/autorun.sh
 
-cd /tmp
-wget https://pypi.python.org/packages/source/p/pyserial/pyserial-3.0.1.tar.gz#md5=c8521e49f8852196aac39431e0901703
-tar zxvf pyserial-3.0.1.tar.gz
-cd pyserial-3.0.1/
-python setup.py install
+pip install pyserial
 pip install pymysql
 
 cd /usr/WeatherServiceClient
 echo Install completed
 echo Thank you!
+echo "Notice! Please set crontab service by yourself!!!!!"
+echo "If you skip this step, device will not upload data itself!"
+echo "You also could set auto-update.sh in crontab, it can update automatically!"
+echo "Start crontab -e"
+
+crontab -e
 
 
