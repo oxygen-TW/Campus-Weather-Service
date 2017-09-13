@@ -4,7 +4,7 @@ sudo cp -r /usr/local/src/Weather-Station/WeatherServiceClient /usr
 
 #Set ssh server
 sudo rm -f /etc/ssh/sshd_config
-sudo cp /usr/local/src/Weather-Station/WeatherServiceClient/Install_Tools/sshd_config /etc/ssh/
+sudo cp /usr/local/src/Weather-Station/WeatherServiceClient/sshd_config /etc/ssh/
 service ssh start
 sudo update-rc.d -f ssh defaults
 echo "SSH Server default port = 12345"
