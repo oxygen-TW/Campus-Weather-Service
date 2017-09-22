@@ -82,8 +82,11 @@ sh remove.sh
 
 ## API
 
-仍在開發階段
-https://github.com/junyussh/weather-api
+Beta 階段
+GET: http://203.72.63.54:5000/api
+GET 特定筆數資料: http://203.72.63.54:5000/api?size=<number>
+
+POST: http://203.72.63.54:5000/api 
 
 ## 網頁
 
@@ -100,6 +103,7 @@ https://github.com/junyussh/weather-api
 - 美工設計
 - 熟悉 3D 列印及雷射切割者
 - 網頁前端設計師
+- 文書事務團隊
 - 行銷團隊
 
 ## 聯絡我們
