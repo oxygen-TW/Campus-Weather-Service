@@ -84,6 +84,7 @@ sh remove.sh
 
 Beta 階段
 GET: http://203.72.63.54:5000/api
+
 GET 特定筆數資料: http://203.72.63.54:5000/api?size=<number>
 
 POST: http://203.72.63.54:5000/api 
