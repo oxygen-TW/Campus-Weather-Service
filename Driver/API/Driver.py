@@ -6,6 +6,8 @@ School Weather Service Project 2016-2017
 Github https://github.com/oxygen-TW/Weather-Station
 E-mail weatherstationTW@gmail.com
 Service Website http://weather.nhsh.tp.edu.tw
+Lisence: BSD-3 clause
+
 '''
 import sys
 import time
@@ -15,22 +17,9 @@ import re
 import serial
 import json
 from time import sleep
+import database #Service Upload
 
-
-# Format python Bridge.py [USB PORT] [DataLog]
-
-APIKEY = 'Y1JUZC930YOKH5JA'
-
-def upload(temperature, humidity, UV_value, light_value, RainFall):
-        params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'field5':RainFall, 'key': APIKEY})
-        
-        headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
-        conn = httplib.HTTPConnection("api.thingspeak.com:80")
-        conn.request("POST", "/update", params, headers)
-        response = conn.getresponse()
-        print response.status, response.reason
-        data = response.read()
-        conn.close()
+# Format python ToDB_Driver.py [USB PORT] [DataLog]
 
 def WriteFile(current_weather,_File):
     try:
@@ -85,12 +74,13 @@ def main():
     UV_value = data['UV']
     RainFall = data['Rain']
 
-    #light_value=1023-light_value
-        
+    RainFall = 1023 - RainFall  #Fixed RainFall Value
     
-    current_weather=time.strftime("%Y/%m/%d %H:%M:%S ")
+    #Get Time
+    UploadTime = time.strftime("%Y/%m/%d %H:%M:%S")
+    current_weather= UploadTime +' '
     
-    #if humidity is not None and temperature is not None:
+    #Start Data Check
     if temperature == "NAN":
         current_weather+='Temp=Err'
     else:
@@ -100,21 +90,26 @@ def main():
         current_weather+=' Humidity=Err'
     else:
         current_weather+=' Humidity='+str(humidity)+'%'
-        
+    
     if light_value > 1023 or light_value < 0:
         light_value = "Err"
-    
+
     if UV_value > 1023 or UV_value < 0:
         UV_value = "Err"
-        
+
     if RainFall > 1023 or RainFall < 0:
         RainFall = "Err"
-        
-    current_weather+= ' light_value={0:0.1f} UV={1:0.1f} Rain={1:0.1f}'.format(light_value, UV_value,RainFall) 
+ 
+    current_weather += ' light_value='+ str(light_value) + ' UV=' + str(UV_value) + ' Rain=' + str(RainFall) 
+
     print(current_weather)
-    #	print(UV_value)
-    WriteFile(current_weather+'\n',LogFile)
-    upload(temperature, humidity, UV_value, light_value,RainFall)    	
+    #因增加系統穩定性，暫時移除本機Log
+    #WriteFile(current_weather+'\n',LogFile) 
+
+    #Call Connect to Weather Service DataBase
+    database.insert_weather((UploadTime,temperature, float(humidity), float(UV_value), light_value,RainFall))
 
 if __name__ == "__main__":
     main()
+
+#開發為何如此艱辛，每一個成功的作品背後，難道都是這樣的壓力與煎熬嗎?

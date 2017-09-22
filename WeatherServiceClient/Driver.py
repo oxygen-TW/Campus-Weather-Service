@@ -6,6 +6,8 @@ School Weather Service Project 2016-2017
 Github https://github.com/oxygen-TW/Weather-Station
 E-mail weatherstationTW@gmail.com
 Service Website http://weather.nhsh.tp.edu.tw
+Lisence: BSD-3 clause
+
 '''
 import sys
 import time
@@ -74,10 +76,11 @@ def main():
 
     RainFall = 1023 - RainFall  #Fixed RainFall Value
     
+    #Get Time
     UploadTime = time.strftime("%Y/%m/%d %H:%M:%S")
     current_weather= UploadTime +' '
     
-    #if humidity is not None and temperature is not None:
+    #Start Data Check
     if temperature == "NAN":
         current_weather+='Temp=Err'
     else:
@@ -97,13 +100,16 @@ def main():
     if RainFall > 1023 or RainFall < 0:
         RainFall = "Err"
  
-    current_weather+= ' light_value='+ str(light_value) + ' UV=' + str(UV_value) + ' Rain=' + str(RainFall) 
+    current_weather += ' light_value='+ str(light_value) + ' UV=' + str(UV_value) + ' Rain=' + str(RainFall) 
 
     print(current_weather)
-    WriteFile(current_weather+'\n',LogFile)
+    #因增加系統穩定性，暫時移除本機Log
+    #WriteFile(current_weather+'\n',LogFile) 
 
     #Call Connect to Weather Service DataBase
     database.insert_weather((UploadTime,temperature, float(humidity), float(UV_value), light_value,RainFall))
 
 if __name__ == "__main__":
     main()
+
+#開發為何如此艱辛，每一個成功的作品背後，難道都是這樣的壓力與煎熬嗎?
