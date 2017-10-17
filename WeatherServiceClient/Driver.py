@@ -107,7 +107,7 @@ def main():
     #WriteFile(current_weather+'\n',LogFile) 
 
     #Call Connect to Weather Service DataBase
-    database.insert_weather((UploadTime,temperature, float(humidity), float(UV_value), light_value,RainFall))
+    database.insert_weather((UploadTime,temperature, float(humidity), float(UV_value), light_value,RainFall,2))
 
 if __name__ == "__main__":
     main()
