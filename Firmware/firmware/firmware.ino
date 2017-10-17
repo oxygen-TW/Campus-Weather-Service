@@ -1,6 +1,6 @@
 
 /*
- * School Weather Service Project 2016-2017
+ * Campus Weather Service Project 2016-2017
  * Github https://github.com/oxygen-TW/Weather-Station
  * E-mail weatherstationTW@gmail.com
  * Service Website http://weather.nhsh.tp.edu.tw
@@ -85,5 +85,4 @@ void loop() {
   /*else
     Serial.println("FAIL");*/
   delay(10);
-
 }
