@@ -1,0 +1,52 @@
+嗨~ 大家好 
+我們是內湖高中校園氣象服務團隊
+
+
+在此先感謝{SCHOOL}願意與我們合作，成為我們的第{SCHOOL_ID}個校外節點:)
+我們預計在 {SETTING_DATE} 會到中山裝設感測器！
+
+
+我們來幹嘛的? 
+簡單來說呢，我們會在你們校園中放置一台天氣感測儀器，也就是為你們設立一個開源氣象站！
+
+
+是不是曾經有過這些困擾呢?
+- 不知道學校溫度幾度該穿長袖還短袖才好?
+- 冷氣規定溫度才能開，實際上幾度也沒人知道?
+- 現在太陽紫外線到底有多強?
+- 升旗到底是在幾度的環境下聽....很有意義的話呢?
+
+校園氣象服務可以幫你解決這些問題！
+
+
+要怎麼使用服務?
+到我們的服務網頁 : http://weather.nhsh.tp.edu.tw/data
+我們的粉絲專頁 : https://www.facebook.com/WeatherServiceTW
+嗯...那個...現在因為伺服器內部架構更新，服務網頁會連不上，我們會繼續燒我們的肝盡力修復，還請見諒。
+
+
+還有什麼嗎?
+我們所觀測到的數據會公開，如果有人想拿來做小論文或其他研究的話，可以使用我們的 
+Data API 來取得我們定期觀測的數據。 API： http://203.72.63.54:5000/api
+
+
+我們需要你！
+說到這，如果有人對我們的服務感興趣，想加入的話可以填以下表單(我們很缺人QQ)
+
+
+節點維護 : https://goo.gl/forms/UISIBraUa9wZoJqj2
+系統開發 : https://goo.gl/forms/rlN7b4bfS7VVeqPn2
+
+
+開發者專區
+================================================================ 
+計畫說明: https://github.com/oxygen-TW/Weather-Station/blob/master/README.md
+Github-node: https://github.com/oxygen-TW/Weather-Station 
+Github-web: https://github.com/junyussh/weather-view 
+Githun-api: https://github.com/junyussh/weather-api 
+================================================================
+
+
+氣象站服務核心開發團隊敬祝
+身體健康、學業進步
+早日脫魯、學測就上
