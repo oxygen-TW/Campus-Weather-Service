@@ -8,7 +8,7 @@ import os
 class Database:
     def __enter__(self):
         self.conn = pymysql.connect(host='HOST_NAME',
-                                    db='SB_NAME',
+                                    db='DB_NAME',
                                     port=PORT, user='USER_NAME',
                                     passwd='PASSWORD',
                                     use_unicode=True,
@@ -42,8 +42,8 @@ def query_fetchall(sql, data=None):
 
 def insert_weather(data):
     with Database() as db:
-        sql = """INSERT INTO weather_weather (time,temperature,humidity,uv,light,rainfall) VALUES (%s,%s,%s,%s,%s,%s)""".format(
-            data[0], data[1], data[2], data[3], data[4], data[5])
+        sql = """INSERT INTO weather_weather (time,temperature,humidity,uv,light,rainfall,school) VALUES (%s,%s,%s,%s,%s,%s,%s)""".format(
+            data[0], data[1], data[2], data[3], data[4], data[5], data[6])
         db.execute(sql, data)
 
 
