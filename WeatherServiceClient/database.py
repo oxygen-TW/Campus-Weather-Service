@@ -42,7 +42,7 @@ def query_fetchall(sql, data=None):
 
 def insert_weather(data):
     with Database() as db:
-        sql = """INSERT INTO weather_weather (time,temperature,humidity,uv,light,rainfall,school) VALUES (%s,%s,%s,%s,%s,%s,%s)""".format(
+        sql = """INSERT INTO weather (time,temperature,humidity,uv,light,rainfall,school) VALUES (%s,%s,%s,%s,%s,%s,%s)""".format(
             data[0], data[1], data[2], data[3], data[4], data[5], data[6])
         db.execute(sql, data)
 
