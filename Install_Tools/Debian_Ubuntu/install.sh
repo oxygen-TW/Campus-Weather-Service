@@ -1,4 +1,4 @@
-su -l
+
 sudo cp -r /usr/local/src/Weather-Station/WeatherServiceClient /usr
 
 #Set ssh server
