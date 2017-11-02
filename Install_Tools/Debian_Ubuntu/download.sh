@@ -14,8 +14,8 @@ apt-get -y install python-pip ftp openssh-server sysv-rc-confgit python3 python 
 
 #Get Weather Service Client
 cd /usr/local/src
-git clone https://github.com/oxygen-TW/Weather-Station.git
-cd Weather-Station
-sh /usr/local/src/Weather-Station/Install_Tools/install.sh
+git clone https://github.com/oxygen-TW/Campus-Weather-Service.git
+cd Campus-Weather-Service
+sh /usr/local/src/Campus-Weather-Service/Install_Tools/install.sh
 
 
