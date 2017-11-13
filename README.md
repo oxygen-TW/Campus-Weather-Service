@@ -103,7 +103,7 @@ POST: http://203.72.63.54:5000/api
 
 氣象站網站全端、資料庫管理由 *@cjchengtw* 所負責
 
-[https://github.com/cjchengtw/campus-weather-station](網站原始碼連結)
+[網站原始碼連結](https://github.com/cjchengtw/campus-weather-station)
 
 首頁介面的部分由 *@junyussh* 進行維護，若想下載該前端部分的源碼請至：
 
