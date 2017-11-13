@@ -83,15 +83,29 @@ sh remove.sh
 ## API
 
 Beta 階段
+1. Django Restful API
+天氣資訊：http://weather.nhsh.tp.edu.tw/api/weathers
+學校資訊：http://weather.nshh.tp.edu.tw/api/schools
+
+目前提供GET方法查詢
+
+若想加入我們的API，請向我們聯絡，我們將會派員實地裝機，並將數據上傳至我們的資料庫。
+
+2. Node.js Restful API
+
 GET: http://203.72.63.54:5000/api
 
 GET 特定筆數資料: http://203.72.63.54:5000/api?size=<number>
 
 POST: http://203.72.63.54:5000/api 
 
-## 網頁
+## 網站
 
-網頁介面的部分由 *@junyussh* 進行維護，若想下載該前端部分的源碼請至：
+氣象站網站全端、資料庫管理由 *@cjchengtw* 所負責
+
+[https://github.com/cjchengtw/campus-weather-station](網站原始碼連結)
+
+首頁介面的部分由 *@junyussh* 進行維護，若想下載該前端部分的源碼請至：
 
 [https://github.com/junyussh/weather-view](https://github.com/junyussh/weather-view "前端 by junyussh")
 
@@ -103,6 +117,7 @@ POST: http://203.72.63.54:5000/api
 - MCU 開發
 - 美工設計
 - 熟悉 3D 列印及雷射切割者
+- 網頁後端工程師
 - 網頁前端設計師
 - 文書事務團隊
 - 行銷團隊
