@@ -82,7 +82,7 @@ sh remove.sh
 
 ## API
 
-Beta 階段
+Alpha 階段
 1. Django Restful API
 天氣資訊：http://weather.nhsh.tp.edu.tw/api/weathers
 學校資訊：http://weather.nshh.tp.edu.tw/api/schools
