@@ -8,7 +8,7 @@ from email.mime.multipart import MIMEMultipart
 msg = MIMEMultipart('alternative')
 
 gmail_user = 'weatherstationtw@gmail.com'
-gmail_pwd = 'NHWS1234'
+gmail_pwd = 'NHWS4321'
 
 smtpserver = smtplib.SMTP("smtp.gmail.com",587)
 smtpserver.ehlo()
