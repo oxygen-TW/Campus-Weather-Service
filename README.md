@@ -127,3 +127,7 @@ POST: http://203.72.63.54:5000/api
 Facebook -> https://www.facebook.com/pg/WeatherServiceTW
 
 Group Email -> weatherstationtw@gmail.com
+
+## 技術領導
+![image](https://oxygentw.net/wp-files/logo/logo-resize.png)
+![image](http://www.nhsh.tp.edu.tw/_/rsrc/1453133598171/config/2016banner.jpg.1453133597878.jpg)
