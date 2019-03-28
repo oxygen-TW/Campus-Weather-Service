@@ -1,4 +1,4 @@
-# School Weather Station Service
+# Campus Weather Station Service
 
 >我們是氣象站團隊！我們希望開發出小型的氣象觀測站，並將氣象觀測站廣設於校園中，以利同學及老師在上課前可以知道學校的天氣狀況，定期觀測的數據也可作為預報或其他研究用途，此專案開源，所以學校也可將此氣象感測站依需求修改及作為教學用途，如有興趣參與計畫，歡迎與我們聯絡，我們會為你們的學校準備一組氣象站設備。 
 
@@ -129,5 +129,5 @@ Facebook -> https://www.facebook.com/pg/WeatherServiceTW
 Group Email -> weatherstationtw@gmail.com
 
 ## 技術領導
-![image](https://oxygentw.net/wp-files/logo/logo-resize.png)
+![image](https://oxygentw.net/files/logo.png)
 ![image](http://www.nhsh.tp.edu.tw/_/rsrc/1453133598171/config/2016banner.jpg.1453133597878.jpg)
